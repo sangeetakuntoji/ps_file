@@ -16,7 +16,9 @@ jobs:
 
           - name: Build Module
             shell: pwsh
-            run: ./rg.ps1 -Task ModuleBuild
+            run: 
+              Install-Module -Name Az -Repository PSGallery -Force
+              ./rg.ps1 -Task ModuleBuild
            
     
      
