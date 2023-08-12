@@ -6,7 +6,6 @@ jobs:
         ResourceGroup:
           name: "PowerShell Demo"
           runs-on: ubuntu-latest
-      
         steps:
           - name: Login via Az module
             uses: azure/login@v1
