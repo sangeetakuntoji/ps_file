@@ -15,7 +15,7 @@ jobs:
 
           - name: Build Module
             shell: pwsh
-            run: ./ps/rg.ps1 -Task ModuleBuild
+            run: ./rg.ps1 -Task ModuleBuild
            azPSVersion: "latest"
     
      
