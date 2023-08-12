@@ -1,0 +1,1 @@
+﻿$rg = New-AzResourceGroup -Name 'skywave-rg1' -Location 'South India'

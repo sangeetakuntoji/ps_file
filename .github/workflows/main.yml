@@ -2,24 +2,21 @@ on:
     push:
       branches: [ main ]
      
-  jobs:
+jobs:
         ResourceGroup:
           name: "PowerShell Demo"
           runs-on: ubuntu-latest
       
-          steps:
-            - name: Build Module
-              shell: pwsh
-              run: Invoke-Build -Task ModuleBuild
+        steps:
+          - name: Login via Az module
+            uses: azure/login@v1
+            with:
+             creds: ${{secrets.AZURE_CREDENTIALS}}
+             enable-AzPSSession: true
 
-            - name: Login via Az module
-              uses: azure/login@v1
-              with:
-              creds: ${{secrets.AZURE_CREDENTIALS}}
-              enable-AzPSSession: true
-
-            - name: Build Module
-              shell: pwsh
-              run: ./ps/rg.ps1 -Task ModuleBuild
+          - name: Build Module
+            shell: pwsh
+            run: ./ps/rg.ps1 -Task ModuleBuild
+           azPSVersion: "latest"
     
      
